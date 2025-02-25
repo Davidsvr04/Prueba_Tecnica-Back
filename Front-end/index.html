@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios y Transacciones</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Gestión de Usuarios y Transacciones</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Pantalla de Usuarios -->
+    <section id="user-list">
+      <h2><i class="fas fa-users"></i> Lista de Usuarios</h2>
+      <form id="user-form">
+        <input type="text" id="user-name" placeholder="Nombre" required>
+        <input type="email" id="user-email" placeholder="Email" required>
+        <button type="submit"><i class="fas fa-plus"></i> Agregar Usuario</button>
+      </form>
+      <table id="users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Saldo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se cargarán los usuarios -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Pantalla de Transacciones -->
+    <section id="transaction-list" style="display: none;">
+      <h2><i class="fas fa-exchange-alt"></i> Transacciones del Usuario <span id="user-id"></span></h2>
+      <form id="transaction-form">
+        <input type="number" id="transaction-amount" placeholder="Monto" required>
+        <select id="transaction-type" required>
+          <option value="deposit">Depósito</option>
+          <option value="withdrawal">Retiro</option>
+        </select>
+        <button type="submit"><i class="fas fa-check"></i> Registrar Transacción</button>
+      </form>
+      <table id="transactions-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Monto</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se cargarán las transacciones -->
+        </tbody>
+      </table>
+      <button id="back-button"><i class="fas fa-arrow-left"></i> Volver a Usuarios</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Gestión de Usuarios y Transacciones. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Script de la aplicación -->
+  <script src="script.js"></script>
+</body>
+</html>
