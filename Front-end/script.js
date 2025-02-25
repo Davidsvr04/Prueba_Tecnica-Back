@@ -1,6 +1,5 @@
 const API_URL = 'http://localhost:3000/api';
 
-// Elementos del DOM
 const userListSection = document.getElementById('user-list');
 const transactionListSection = document.getElementById('transaction-list');
 const usersTableBody = document.querySelector('#users-table tbody');
@@ -11,8 +10,6 @@ const backButton = document.getElementById('back-button');
 const userIdSpan = document.getElementById('user-id');
 
 let currentUserId = null;
-
-// Cargar usuarios al iniciar
 document.addEventListener('DOMContentLoaded', loadUsers);
 
 // Agregar un usuario
@@ -34,7 +31,6 @@ userForm.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Crear el usuario
   const response = await fetch(`${API_URL}/users`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -91,13 +87,11 @@ transactionForm.addEventListener('submit', async (e) => {
       body: JSON.stringify({ user_id: currentUserId, amount, type }),
     });
 
-    // Verificar si la respuesta es exitosa
     if (!response.ok) {
       const errorData = await response.json(); // Leer el mensaje de error del backend
       throw new Error(errorData.error || 'Error al registrar la transacción');
     }
 
-    // Mostrar mensaje de éxito
     Swal.fire({
       icon: 'success',
       title: 'Éxito',
